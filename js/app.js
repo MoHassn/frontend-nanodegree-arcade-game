@@ -108,6 +108,13 @@ Player.prototype.update = function() {
     // TODO: Handle the collision
 };
 
+// Reset the player to its initial state
+Player.prototype.reset = function() {
+    // Set its postion to the initial case
+    this.x = (2 * 101);
+    this.y = (5 * 83);
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
