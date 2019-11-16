@@ -26,10 +26,11 @@ Enemy.prototype.update = function(dt) {
 
     // When the enemy disappears from the screen
     // reset the enemy to the initial positon with
-    // diffrent speed
+    // diffrent speed and diffrent Y location
     if (this.x > 510) {
         this.x = -110;
-        this.speed = 5 + Math.floor(Math.random() * 10);
+        this.y = (Math.floor(Math.random() * 3) + 1) * 83;
+        this.speed = Math.floor(Math.random() * 300) + 50;
 
     }
     // This statement for detect collision and
@@ -126,7 +127,19 @@ Player.prototype.reset = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+var player = new Player(202, 5 * 83);
 
+var allEnemies = [];
+
+// Definge IIFE that creates the enimes
+(function(){
+    let randomLocation, randomSpeed;
+    for (let i = 0; i < 5; i++) {
+        randomLocation = Math.floor(Math.random() * 3) + 1;
+        randomSpeed = Math.floor(Math.random() * 300) + 50;
+        allEnemies.push(new Enemy(-100, randomLocation * 83, randomSpeed));
+    }
+})();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
