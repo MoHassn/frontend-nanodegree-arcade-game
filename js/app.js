@@ -96,6 +96,18 @@ Player.prototype.handleInput = function(key) {
     }
 };
 
+// Check if the player reaced the water and if the is a collision
+Player.prototype.update = function() {
+    // Check if the player reached the water and if so
+    // then rest
+    if (this.y < 83) {
+        // The player have reached the water
+        // reset the game
+        this.reset();
+    }
+    // TODO: Handle the collision
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
