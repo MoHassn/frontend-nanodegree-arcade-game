@@ -20,6 +20,19 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    // Increase the distace of the enemy
+    this.x += dt * this.speed;
+
+    // When the enemy disappears from the screen
+    // reset the enemy to the initial positon with
+    // diffrent speed
+    if (this.x > 510) {
+        this.x = -110;
+        this.speed = 5 + Math.floor(Math.random() * 10);
+
+    }
+    // TODO: Handle the collision
 };
 
 // Draw the enemy on the screen, required method for game
