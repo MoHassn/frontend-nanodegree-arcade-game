@@ -32,7 +32,15 @@ Enemy.prototype.update = function(dt) {
         this.speed = 5 + Math.floor(Math.random() * 10);
 
     }
-    // TODO: Handle the collision
+    // This statement for detect collision and
+    // the calculation due to the real images' size
+    // is bigger than the character
+    if ((this.x + 15) < (player.x +15) + 70 &&
+        this.x + 50 > (player.x + 15) &&
+        (this.y + 90) < (player.y + 70) + 90 &&
+        (this.y + 90) + 50 > (player.y + 60)) {
+            player.reset();
+     }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -105,7 +113,6 @@ Player.prototype.update = function() {
         // reset the game
         this.reset();
     }
-    // TODO: Handle the collision
 };
 
 // Reset the player to its initial state
