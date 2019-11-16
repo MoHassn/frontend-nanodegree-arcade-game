@@ -58,6 +58,44 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Handles the keypress
+Player.prototype.handleInput = function(key) {
+    // To save some memory and increse the performance a little
+    // first check if the key pressed is an Arrow key
+    if (!key){
+        return;
+    }
+
+    // Check for every Arrow key, and before changing
+    // the position of the player it checks if the move
+    // is available and the player will not move off
+    // the screen after the move.
+    switch(key) {
+        case 'right':
+            // Check that it won't move off the right
+            if (this.x <= 303) {
+                // Executing this line means that it won't move off screen
+                this.x += 101;
+            }
+            break;
+        case 'left':
+            if (this.x >= 101) {
+                this.x -= 101;
+            }
+            break;
+        case 'down':
+            if (this.y <= 4 *83) {
+                this.y += 83;
+            }
+            break;
+        case 'up':
+            if (this.y >= 83) {
+                this.y -= 83;
+            }
+            break;
+    }
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
