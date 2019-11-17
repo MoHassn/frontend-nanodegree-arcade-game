@@ -1,4 +1,15 @@
+/* App.js
+ * This file Defines the Classes of the game(Enemy & Player)
+ * and their methods, and also instantiate the objects from them
+*/
+
 // Enemies our player must avoid
+/**
+ * @desc The Enemy class for creating the bugs
+ * @param integer x - the initial position horizontally
+ * @param integer y - the initial position of vertically
+ * @param integer speed - the speed of the enemy
+ */
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -53,6 +64,11 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+/**
+ * @desc The Player class to create the player object from it
+ * @param integer x - the inital position of player horizontally
+ * @param integer y - the inital position of player vertically
+ */
 var Player = function(x, y) {
     // Setting the position of the player
     this.x = x;
