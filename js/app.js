@@ -113,6 +113,7 @@ Player.prototype.update = function() {
         // The player have reached the water
         // reset the game
         this.reset();
+        alert("Congratulations! You've won!");
     }
 };
 
